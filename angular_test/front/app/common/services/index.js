@@ -1,0 +1,1 @@
+angular.module('services',['employee.service','webservice.service','activity.service' ,'profilling.service']);

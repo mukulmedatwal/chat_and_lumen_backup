@@ -1,0 +1,1 @@
+angular.module('paginator',['paginator.service','paginator.directive','paginator.filter']);

@@ -1,0 +1,77 @@
+<div class="col-lg-12 col-md-12 col-sm-12">
+    <div class="col-lg-3 col-md-3 col-sm-4">
+
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Users</h3>
+            </div>
+            <div class="panel-body" >
+ <!--ui-sref="message.user({id: employee.id, name: employee.name})"-->  
+                <div class="list-group table-of-contents" >
+                    <a class="list-group-item" 
+                       id="_l_{{chatList.id}}"
+                       
+                       ng-class="{'active': chatList.id == userId}"
+                       
+                       ng-click="openChat(chatList)"
+                       ng-repeat="chatList in chatLists | orderBy:sortorder">
+                        <span  class="badge">{{chatList.msg_unread_count}}</span>
+                        {{chatList.name}} </a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-9 col-md-9 col-sm-12">
+        <div id="chat-main-panle">
+            <div  class="chat-main-panel panel panel-primary">
+                                <div class="panel-heading">
+                                        <h3 class="panel-title">{{chatList.name}}</h3>
+                                    </div>
+                                    <div class="panel-body" >
+                                        <div class="chat-panel">
+                                            <div id="chat-messages" class="chat-massages" >
+                                                <div class="col-md-12"  ng-repeat="chat in chatList.chats" >
+                                                    
+                                                    <div ng-show="chat.msg && !chat.name"  class="col-md-12 no-mrg">
+        <!--////                                             <div class="point"></div>-->
+                                                        <div class="nd-bubble-r" ng-bind-html="converToEmoji(chat.msg) | html" ></div>
+        <!--////                                             '<div class="nd-agent-pro7 text-10">'+tim</div>'+-->
+                                                     <div class="clr"></div>
+                                                 </div>
+                                                    
+                                <div ng-show="chat.name && chat.msg"  class="col-md-12 no-mrg">
+                                     <div class="ndpd-col12">
+                                        <img class="nd-chat-img" src="{{chat.user_image}}"  alt= "{{chat.name}}" />
+                                    </div>
+<!--////                                    '<div class="point2"></div>'+-->
+                                    <div class="nd-name">{{chat.name}}</div>
+                                    <div class="nd-bubble-l"  ng-bind-html="converToEmoji(chat.msg) | html" ></div>
+<!--////                                    '<div class="nd-agent-pro5 text-10">'+time+'</div>'+-->
+                                    <div class="clr"></div>
+                                </div>
+
+                                                    
+                                                </div>
+                                            </div>
+                                            <div class="chat-action-box">
+                                                <div class="col-md-12 no-mrg">
+                                                    <div class="col-md-11 no-mrg">
+                                                        <textarea rows="3" class="form-control "  on-enter-event ="submitChat( chatList.id , chatList.name, chatList.topic_key , chatList.is_group )" placeholder="enter your message" id="chattext"></textarea>
+                                                   </div>
+                                                    <div class="col-md-1 no-mrg">
+                                                        <button type="button" class="btn  btn-primary" ng-click="submitChat( chatList.id , chatList.name, chatList.topic_key , chatList.is_group )" > Send </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+            
+            
+            
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,31 @@
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">{{employee.name}} </h3>
+            </div>
+            <div class="panel-body" >
+
+                <div class="chat-panel">
+                    <div id="chat-messages_{{toDestination}}" class="chat-massages" >
+
+                    </div>
+                    <div class="chat-action-box">
+
+                        <div class="col-md-12 no-mrg">
+                            <div class="col-md-11 no-mrg">
+                                <textarea rows="3" class="form-control "  placeholder="enter your message" id="chattext_{{toDestination}}"></textarea>
+                            </div>
+                            <div class="col-md-1 no-mrg">
+                                <button type="button" class="btn  btn-primary" ng-click="submitChat()" > Send </button>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+
+            </div>
+        </div>
+    

@@ -1,0 +1,43 @@
+<div class="jumbotron">
+  <h1>Welcome to the Activities!</h1>
+</div>
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Activities |
+  Sort by : <sort-drop-down  ng-model="sortorder" options="sortOptions" optExp="sortOption.name for sortOption in sortOptions"></sort-drop-down> 
+  
+  
+  </div>
+  <div class="panel-body">
+      
+       <paginator></paginator>
+
+  </div>
+  <!-- Table -->
+  <table class="table">
+      <tr>
+          <th> ID </th>
+          <th> Action Performed </th>
+          <th> Employee Name </th>
+          <th> Date </th>
+          <th>Delete</th>
+      </tr>
+      <tr id="activity_{{activity.id}}"  ng-show="activity.id" ng-repeat="activity in activities | orderBy:sortorder.id | paginate:rowsPerPage">
+            <td>{{activity.id}}</td>
+            <td>{{activity.action}}</td>
+            <td>{{activity.employee_name}}</td>
+            <td>{{activity.cteated_at}}</td>
+            <td custom-alert="Are you sure you want to delete this?" ng-click="deleteActivity(activity.id);"> 
+                <button>Delete</button>
+            </td>
+      </tr>
+         
+  </table>
+<div class="panel-body">
+      
+       <paginator></paginator>
+
+  </div>
+  
+</div>
+    

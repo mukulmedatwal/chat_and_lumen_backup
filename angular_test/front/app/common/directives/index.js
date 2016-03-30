@@ -1,0 +1,1 @@
+angular.module('directives',['custom-alert.directive','sort-drop-down.directive']);

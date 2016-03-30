@@ -1,0 +1,192 @@
+<style>
+    body {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #eee;
+}
+
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px;
+}
+.form-signin .checkbox {
+  font-weight: normal;
+}
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+</style>
+
+<!--<div class="container">-->
+<div class="col-md-12">
+    <div class="col-md-6">
+        <form name="loginForm" class="form-signin" novalidate ng-submit="loginForm.$valid && processLogin(user);">
+        <h2 class="form-signin-heading">Please sign in</h2>
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input type="email" id="inputEmail" name="email" ng-model="user.email" class="form-control" placeholder="Email address" required="" autofocus="">
+        <span style="color:red" ng-show="loginForm.email.$dirty && loginForm.email.$invalid">
+        <span ng-show="loginForm.email.$error.required">Email is required.</span>
+        <span ng-show="loginForm.email.$error.email">Invalid email address.</span>
+        </span>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password"  name="password" id="inputPassword" ng-model="user.password" class="form-control" placeholder="Password" required="">
+        <span style="color:red" ng-show="loginForm.password.$dirty && loginForm.password.$invalid">
+        <span ng-show="loginForm.password.$error.required">Password is required.</span>
+        </span>
+        {{error}}
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+      </form>
+        
+    </div>
+    <div class="col-md-6">
+        <h2 class="form-signin-heading">Create Account</h2>
+<form name="updateForm" data-custom-submit="save(employee)" novalidate >
+        <!--<h2 class="form-signin-heading">Edit : {{::employee.fullName}}</h2>-->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-3">
+                    <label  for="inputEmail" >Full Name</label>
+                </div>
+                <div class="col-md-9">
+                    <input type="input" id="fullName" name="fullName" ng-model="employee.name" class="form-control" placeholder="Enter full name" required="" autofocus="">
+                    <span style="color:red" ng-show="updateForm.fullName.$dirty && updateForm.fullName.$invalid">
+                    <span ng-show="updateForm.fullName.$error.required">Full Name is required.</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-3">
+                    <label  for="inputEmail" >Email</label>
+                </div>
+                <div class="col-md-9">
+                    <input type="email" id="email" name="email" ng-model="employee.email" ng-change="verifyDuplicate(employee)" class="form-control" placeholder="Enter email" required="" autofocus="">
+                    <span style="color:red" ng-show="updateForm.email.$dirty && updateForm.email.$invalid">
+                    <span ng-show="updateForm.email.$error.required">Email is required.</span>
+                    <span ng-show="updateForm.email.$error.email">Invalid email address.</span>
+                    
+                    </span>
+                    <span style="color:red" ng-show="unique">Account with such e-mail already exists.</span>
+                    <!--{{unique}}-->
+                </div>
+                
+            </div>
+        </div>
+        <p> Password is 123456 </p>
+<!--        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-3">
+                    <label  for="inputEmail" >Address</label>
+                </div>
+                <div class="col-md-9">
+                    <input type="input" id="address" name="address" ng-model="employee.address" class="form-control" placeholder="Enter address" required="" autofocus="">
+                    <span style="color:red" ng-show="updateForm.address.$dirty && updateForm.address.$invalid">
+                    <span ng-show="updateForm.address.$error.required">Address is required.</span>
+                    </span>
+                </div>
+            </div>
+        </div>-->
+<!--        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-3">
+                    <label  for="inputEmail" >age</label>
+                </div>
+                <div class="col-md-9">
+                    <input type="number" id="age" name="age" ng-model="employee.age" class="form-control" placeholder="Enter age" required="" autofocus="">
+                    <span style="color:red" ng-show="updateForm.age.$dirty && updateForm.age.$invalid">
+                    <span ng-show="updateForm.age.$error.required">age is required.</span>
+                    </span>
+                </div>
+            </div>
+        </div>-->
+        
+<!--        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-3">
+                    <label  for="inputEmail" >gender</label>
+                </div>
+                <div class="col-md-9">
+                    <select ng-model="employee.gender" id="employee" name="employee" required="">
+                        <option value=""></option>
+                        <option value="M">Male</option>
+                        <option value="F">Female</option>
+                        
+                    </select>
+                    <span style="color:red" ng-show="updateForm.gender.$dirty && updateForm.gender.$invalid">
+                    <span ng-show="updateForm.gender.$error.required">gender is required.</span>
+                    </span>
+                </div>
+            </div>
+        </div>-->
+        
+<!--        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-3">
+                    <label  for="inputEmail" >education</label>
+                </div>
+                <div class="col-md-9">
+                    <input type="input" id="education" name="education" ng-model="employee.education" class="form-control" placeholder="Enter education" required="" autofocus="">
+                    <span style="color:red" ng-show="updateForm.education.$dirty && updateForm.education.$invalid">
+                    <span ng-show="updateForm.education.$error.required">education is required.</span>
+                    </span>
+                </div>
+            </div>
+        </div>-->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-6">
+                    <button class="btn btn-lg btn-primary btn-block" name="submit" type="submit" >Save</button>
+                </div>
+                
+                <div class="col-md-8">
+                    {{error}}
+                </div>
+            </div>
+        </div>
+        </form>
+    </div>
+    
+</div>
+
+
+    
+
+
+
+<!--</div>-->
+
+
+
+<!--<ul>
+    <li ng-repeat="user in users" >
+        {{user.name}} , {{user.email}} , {{user.password}}
+    </li>
+</ul>-->
+
+<!--adsas-->

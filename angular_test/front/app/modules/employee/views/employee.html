@@ -1,0 +1,47 @@
+<div class="jumbotron">
+  <h1>Welcome to the Employee Master!</h1>
+</div>
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Employees |
+  Sort by : <sort-drop-down  ng-model="sortorder" options="sortOptions" optExp="sortOption.name for sortOption in sortOptions"></sort-drop-down>
+
+  </div>
+  <div class="panel-body">
+      
+       <paginator></paginator>
+
+  </div>
+  <!-- Table -->
+  <table class="table">
+      <tr>
+          <th> ID </th>
+          <th> Name </th>
+          <th> Department </th>
+          <th> Salary </th>
+          <th> Experience </th>
+          <th> Join On </th>
+          <th>Delete</th>
+      </tr>
+      <tr id="employee_{{employee.id}}" ng-show="employee.id" ng-repeat="employee in employees | orderBy:sortorder.column | paginate:rowsPerPage">
+            <td>{{employee.id}}</td>
+            <td>{{employee.name}}</td>
+            <td>{{employee.department}}</td>
+            <td>{{employee.salary}}</td>
+            <td>{{employee.experience}} Year(s)</td>
+            <td>{{employee.created_at}}</td>
+            <td custom-alert="Are you sure you want to delete this?" ng-click="deleteEmployee(employee.id);"> 
+                <button>Delete</button>
+            </td>
+      </tr>
+      
+         
+  </table>
+  <div class="panel-body">
+      
+       <paginator></paginator>
+
+  </div>
+  
+</div>
+    

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="angular_test_app" class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>My AngularJS App</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
+  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
+  <link rel="stylesheet" href="app/app.css">
+  <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+  
+  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+
+</head>
+<body>
+
+<!--Menu-->
+ <nav  class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      
+      <ul class="nav navbar-nav navbar-right">
+          <li><a href="#/employees" >Employees</a></li>
+          <li><a  href="#/activity" >Activity</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+ <div class="container">
+  <div ng-view></div>
+ </div>
+  <!--<div>Angular seed app: v<span app-version></span></div>-->
+
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  
+  <!-- directive to be loaded first -->
+  <script src="app/common/directives/custom-alert.js"></script>
+  <script src="app/common/directives/sort-drop-down.js"></script>
+  
+  
+  <!-- Common files to be loaded first -->
+  <script src="app/common/directives/index.js"></script>
+  <script src="app/common/services/employee.js"></script>
+  <script src="app/common/services/webservice.js"></script>
+  <script src="app/common/services/activity.js"></script>
+  <script src="app/common/services/profilling.js"></script>
+  <script src="app/common/services/index.js"></script>
+
+  <!-- paginator module -->
+  <script src="app/common/modules/paginator/paginator.directive.js"></script>
+  <script src="app/common/modules/paginator/paginator.filter.js"></script>
+  <script src="app/common/modules/paginator/paginator.service.js"></script>
+  <script src="app/common/modules/paginator/index.js"></script>
+  
+  
+  <!-- employee module -->
+  <script src="app/modules/employee/employee.controller.js"></script>
+  <script src="app/modules/employee/employee.route.js"></script>
+  <script src="app/modules/employee/index.js"></script>
+  <!-- activity module -->
+  <script src="app/modules/activity/activity.controller.js"></script>
+  <script src="app/modules/activity/activity.route.js"></script>
+  <script src="app/modules/activity/index.js"></script>
+  
+  <!-- Main module -->
+  <script src="app/app.js"></script>
+
+</body>
+</html>

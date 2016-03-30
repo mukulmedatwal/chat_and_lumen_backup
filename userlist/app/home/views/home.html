@@ -1,0 +1,63 @@
+<style>
+.selected {
+    background-color:#dff0d8;
+    color:#468847;
+    /*font-weight:bold;*/
+    /*border:1px solid #d6e9c6;*/
+}
+</style>
+<div class="jumbotron">
+  <h1>Hello, {{user.name}}!</h1>
+  <p>Email: {{user.email}}</p>
+<!--  <p>Address: {{user.address}}</p>
+  <p>Age: {{user.age}}</p>
+  <p>Gender: {{user.gender}}</p>-->
+</div>
+    
+    <div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Employees <span ng-show="selectedRow.length >= 1" > | <a delete-selected="Are you sure you want to delete All this?" ng-click="deleteSelected()" >Delete Selected</a>
+  </span>| <a href="#/add">Add Employee!</a> |
+  Sort by : <select ng-model="sortorder">
+  <option value="+name">Name</option>
+  <option value="+email">Email</option>
+  <option value="+age">Age</option>
+  <option value="+gender">Gender</option>
+</select> 
+  
+  </div>
+  <div class="panel-body">
+      
+      
+
+  </div>
+{{page}}
+  <!-- Table -->
+  <table class="table">
+      <tr>
+          <th> Name </th>
+          <th> Email </th>
+          <th> Address </th>
+          <th> Age </th>
+          <th> Gender </th>
+          <th> Education </th>
+          <th>Delete</th>
+      </tr>
+      <tr id="employee_{{employee.id}}" ng-class="{'selected':selectedRow.indexOf(employee.id) > -1}" ng-show="employee.id" ng-repeat="employee in employees | orderBy:sortorder">
+            <td ng-click="selectEmployee(employee)" ng-dblclick="openEdit(employee.id)">{{employee.name}}</td>
+            <td ng-click="selectEmployee(employee)" ng-dblclick="openEdit(employee.id)">{{employee.email}}</td>
+            <td ng-click="selectEmployee(employee)" ng-dblclick="openEdit(employee.id)">{{employee.address}}</td>
+            <td ng-click="selectEmployee(employee)" ng-dblclick="openEdit(employee.id)">{{employee.age}}</td>
+            <td ng-click="selectEmployee(employee)" ng-dblclick="openEdit(employee.id)">{{employee.gender}}</td>
+            <td ng-click="selectEmployee(employee)" ng-dblclick="openEdit(employee.id)">{{employee.education}}</td>
+            <td custom-alert="Are you sure you want to delete this?" ng-click="deleteEmployee(employee.id);"> 
+                <button >Delete</button>
+            </td>
+      </tr>
+  </table>
+  
+  
+  <button ng-click='previousPage()'>Previous<button>
+<button ng-click='nextPage()'>Next<button>
+</div>
+    

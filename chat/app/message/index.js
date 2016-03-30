@@ -1,0 +1,1 @@
+angular.module('message',['message.controller','message.route','LocalStorageModule']);

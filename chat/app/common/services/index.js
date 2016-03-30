@@ -1,0 +1,1 @@
+angular.module('services',['user.service','login.service','LocalStorageModule','employees.service','session.service','storage.service','chat.service']);

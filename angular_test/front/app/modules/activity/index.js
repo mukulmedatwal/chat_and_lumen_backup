@@ -1,0 +1,1 @@
+angular.module('activity',['activity.controller','activity.route']);
